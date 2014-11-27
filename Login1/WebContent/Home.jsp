@@ -1,10 +1,15 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="entidad.Persona"%>
+<%@page import="dao.impl.PersonaDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//Dth HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dth">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Potencial tabla</title>
 </head>
 <body>
 
@@ -15,8 +20,25 @@
             String a=(String)session.getAttribute("username");
             out.println("Hello  "+a);
             %>
-
             </h2>
+			<table>
+				<%
+					PersonaDao personadao = new PersonaDao();
+					List<Persona> personas = personadao.findAll();
+					out.println("<tr>"
+							+"<th>nombre</th>"
+							+"<th>apellido</th>"
+							+"<th>domicilio</th>"
+							+"<th>edad</th>"
+							+"</tr>");
+					for(Persona p : personas){
+					out.println("<tr><td>"+p.getNombre()+"</td>");
+					out.println("<td>"+p.getApellido()+"</td>");
+					out.println("<td>"+p.getDomicilio()+"</td>");
+					out.println("<td>"+p.getEdad()+"</td></tr>");
+					}
+				%>
+			</table>
             <br/>
             <br/>
             <br/><br/><br/><br/><br/>
