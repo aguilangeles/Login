@@ -24,7 +24,7 @@
 			<table>
 				<%
 					PersonaDao personadao = new PersonaDao();
-					List<Persona> personas = personadao.findAll();
+					List<Persona> personas = personadao.getPersonas();
 					out.println("<tr>"
 							+"<th>nombre</th>"
 							+"<th>apellido</th>"
@@ -37,12 +37,14 @@
 					out.println("<td>"+p.getDomicilio()+"</td>");
 					out.println("<td>"+p.getEdad()+"</td></tr>");
 					}
+					session.setAttribute("PersonaDao", personadao);
 				%>
 			</table>
             <br/>
             <br/>
             <br/><br/><br/><br/><br/>
         <a href="Logout.jsp">Logout</a>
+        <a href="Insert.jsp">Insertar</a>
         </center>
 </body>
 </html>
