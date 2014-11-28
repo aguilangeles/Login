@@ -37,14 +37,15 @@
 					out.println("<td>"+p.getDomicilio()+"</td>");
 					out.println("<td>"+p.getEdad()+"</td></tr>");
 					}
-					session.setAttribute("PersonaDao", personadao);
 				%>
 			</table>
             <br/>
             <br/>
+             <br/><input type="submit" value="Insertar">
+             <% personas.add(new Persona("pablo", "pilar", "san fc 3", 3)); %>
             <br/><br/><br/><br/><br/>
         <a href="Logout.jsp">Logout</a>
-        <a href="Insert.jsp">Insertar</a>
+<!--        <a href="Insert.jsp">Insertar</a>-->
         </center>
 </body>
 </html>
