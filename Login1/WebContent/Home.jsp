@@ -12,7 +12,6 @@
 <title>Potencial tabla</title>
 </head>
 <body>
-
  <br/><br/><br/><br/><br/>
         <center>
             <h2>
@@ -23,7 +22,7 @@
             </h2>
 			<table>
 				<%
-			PersonaDao personadao = new PersonaDao();
+			PersonaDao personadao = (PersonaDao)request.getAttribute("personadao");
 					List<Persona> personas = personadao.getPersonas();
 					out.println("<tr>"
 							+"<th>nombre</th>"
@@ -44,7 +43,6 @@
              <br/><a href="Insert.jsp"><input type="submit" value="Insertar"></a>
             <br/><br/><br/><br/><br/>
         <a href="Logout.jsp">Logout</a>
-        <a href="Insert.jsp"></a>
         </center>
 </body>
 </html>

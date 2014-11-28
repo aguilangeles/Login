@@ -23,7 +23,10 @@ public class PersonaDao {
 		personas.add(new Persona("Patricia", "Herrera", "Ibiza 3", 66));
 	}
 	
-	
+	public void insertarPersona(Persona unapersona){
+		
+		personas.add(unapersona);
+	}
 
 	public List<Persona> getPersonas() {
 		return personas;

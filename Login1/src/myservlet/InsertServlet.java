@@ -34,13 +34,9 @@ public class InsertServlet extends HttpServlet {
 		String domicilio = request.getParameter("address");
 		String edad = request.getParameter("age"); 
 		if (!nombre.isEmpty() && !apellido.isEmpty() && !domicilio.isEmpty() && !edad.isEmpty()){
+			int eda= Integer.parseInt(edad);
+			Persona persona = new Persona(nombre, apellido, domicilio, eda);
 			
-			
-			PersonaDao personadao =(PersonaDao)request.getSession().getAttribute("PersonaDao");
-//			
-			List<Persona> persona = personadao.getPersonas();
-			int age = Integer.parseInt(edad);
-			persona.add(new Persona(nombre, apellido, domicilio, age));
 			response.sendRedirect("Home.jsp");
 		}else{
 			response.sendRedirect("Error.jsp");

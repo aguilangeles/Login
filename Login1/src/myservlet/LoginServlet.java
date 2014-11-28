@@ -3,8 +3,6 @@ package myservlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,9 +20,6 @@ import entidad.Persona;
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private PersonaDao pdao =new PersonaDao();
-	private Persona persona;
-	private int contador;
 	
        
     /**
@@ -41,48 +36,28 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		if (username.equals("admin") && password.equals("admin")) {
-			response.sendRedirect("Home.jsp");
+			
+			PersonaDao pd = new PersonaDao();
+			request.setAttribute("personadao", pd );
+			request.getRequestDispatcher("Home.jsp").forward(request, response);
+			
+//			response.sendRedirect("Home.jsp")
 		
 		} else {
 			response.sendRedirect("Error.jsp");
 		}
-
-	}
-
-	private void crearTabla(HttpServletResponse response) throws IOException {
-		java.util.List<Persona> personas = pdao.getPersonas();
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title>Hola</title>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<table>");
-		out.println("<tr>" + "<th>nombre</th>" + "<th>apellido</th>"
-				+ "<th>domicilio</th>" + "<th>edad</th>" + "</tr>");
-		for (Persona p : personas) {
-			out.println("<tr><td>" + p.getNombre() + "</td>");
-			out.println("<td>" + p.getApellido() + "</td>");
-			out.println("<td>" + p.getDomicilio() + "</td>");
-			out.println("<td>" + p.getEdad() + "</td></tr>");
-		}
-		out.println("</table>");
-		out.println("</body>");
-		out.println("</html>");
-		out.println(" <br/><input type=\"submit\" value=\"Insertar\">" );
+//		doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String insert = request.getParameter("Insertar");
-		System.out.println(insert);
-		response.sendRedirect("Insert.jsp");
+
 	
 	}
 
