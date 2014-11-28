@@ -23,7 +23,7 @@
             </h2>
 			<table>
 				<%
-					PersonaDao personadao = new PersonaDao();
+			PersonaDao personadao = new PersonaDao();
 					List<Persona> personas = personadao.getPersonas();
 					out.println("<tr>"
 							+"<th>nombre</th>"
@@ -41,11 +41,10 @@
 			</table>
             <br/>
             <br/>
-             <br/><input type="submit" value="Insertar">
-             <% personas.add(new Persona("pablo", "pilar", "san fc 3", 3)); %>
+             <br/><a href="Insert.jsp"><input type="submit" value="Insertar"></a>
             <br/><br/><br/><br/><br/>
         <a href="Logout.jsp">Logout</a>
-<!--        <a href="Insert.jsp">Insertar</a>-->
+        <a href="Insert.jsp"></a>
         </center>
 </body>
 </html>

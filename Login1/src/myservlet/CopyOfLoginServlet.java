@@ -20,7 +20,7 @@ import entidad.Persona;
 /**
  * Servlet implementation class LoginServlet
  */
-public class LoginServlet extends HttpServlet {
+public class CopyOfLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private PersonaDao pdao =new PersonaDao();
 	private Persona persona;
@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public CopyOfLoginServlet() {
         super();
         // TODO Auto-generated constructor stub
 	}
@@ -44,7 +44,8 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		if (username.equals("admin") && password.equals("admin")) {
-			response.sendRedirect("Home.jsp");
+
+			crearTabla(response);
 		
 		} else {
 			response.sendRedirect("Error.jsp");
