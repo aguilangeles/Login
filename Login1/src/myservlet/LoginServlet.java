@@ -44,13 +44,10 @@ public class LoginServlet extends HttpServlet {
 			PersonaDao pd = new PersonaDao();
 			request.setAttribute("personadao", pd );
 			request.getRequestDispatcher("Home.jsp").forward(request, response);
-			
-//			response.sendRedirect("Home.jsp")
 		
 		} else {
 			response.sendRedirect("Error.jsp");
 		}
-//		doPost(request, response);
 	}
 
 	/**
