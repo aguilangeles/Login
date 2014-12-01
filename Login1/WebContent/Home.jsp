@@ -9,17 +9,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Potencial tabla</title>
+<title>Potencial Tabla</title>
 </head>
 <body>
  <br/><br/><br/><br/><br/>
         <center>
             <h2>
            <%
-           // String a=(String)session.getAttribute("username");
-            //out.println("Hello  "+a);
-            PersonaDao personadao = (PersonaDao)request.getAttribute("personadao");
-			List<Persona> personas = personadao.getPersonas();
+			List<Persona> personas = (List<Persona>)request.getAttribute("personasResult");
             %>
             </h2>
 			<table>
@@ -36,8 +33,8 @@
 					out.println("<td>"+p.getDomicilio()+"</td>");
 					out.println("<td>"+p.getEdad()+"</td></tr>");
 					}
-					
-					request.setAttribute("persona_dao", personadao);
+					// no creo que sea necesario
+					//request.setAttribute("persona_dao", personas);
 					%>
 			</table>
             <br/>

@@ -1,0 +1,22 @@
+<%@page import="entidad.Persona"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+	String nombre, apellido, domicilio, edad;
+	nombre = (String) request.getAttribute("name");
+	apellido = (String) request.getAttribute("surname");
+	domicilio = (String) request.getAttribute("address");
+	edad = (String) request.getAttribute("age");
+	int a = Integer.parseInt(edad);
+	Persona p = new Persona(nombre, apellido, domicilio, a);
+	System.out.println(p.toString());
+	%>
+</body>
+</html>

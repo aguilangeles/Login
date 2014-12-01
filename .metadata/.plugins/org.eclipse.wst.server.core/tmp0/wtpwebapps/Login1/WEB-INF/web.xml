@@ -21,12 +21,22 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>AddPerson</display-name>
+    <servlet-name>AddPerson</servlet-name>
+    <servlet-class>myservlet.AddPerson</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddPerson</servlet-name>
+    <url-pattern>/ap</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>InsertServlet</display-name>
     <servlet-name>InsertServlet</servlet-name>
     <servlet-class>myservlet.InsertServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>InsertServlet</servlet-name>
-    <url-pattern>/is</url-pattern>
+    <url-pattern>/InsertServlet</url-pattern>
   </servlet-mapping>
 </web-app>

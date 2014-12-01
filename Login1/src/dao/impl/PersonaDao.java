@@ -9,6 +9,21 @@ public class PersonaDao {
 	private List<Persona> personas = new ArrayList<Persona>();
 	
 	
+	private static volatile PersonaDao instance = null;
+ 
+ 
+    public static PersonaDao getInstance() {
+        if (instance == null) {
+            synchronized (PersonaDao.class) {
+                if (instance == null) {
+                    instance = new PersonaDao();
+                }
+            }
+        }
+ 
+        return instance;
+    }
+    
 	public PersonaDao() {
 		super();
 		poblarPersonas();
@@ -45,6 +60,8 @@ public class PersonaDao {
 		}
 		return persona;
 	}
-
+	public void removerPersona(){
+		// buscar un id para remover.
+	}
 	
 }

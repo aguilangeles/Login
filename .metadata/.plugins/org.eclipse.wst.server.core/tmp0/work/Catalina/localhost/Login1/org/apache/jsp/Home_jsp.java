@@ -65,7 +65,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("<head>\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("<title>Potencial tabla</title>\n");
+      out.write("<title>Potencial Tabla</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
       out.write(" <br/><br/><br/><br/><br/>\n");
@@ -73,10 +73,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <h2>\n");
       out.write("           ");
 
-            String a=(String)session.getAttribute("username");
-            out.println("Hello  "+a);
-            PersonaDao personadao = (PersonaDao)request.getAttribute("personadao");
-			List<Persona> personas = personadao.getPersonas();
+			List<Persona> personas = (List<Persona>)request.getAttribute("personasResult");
             
       out.write("\n");
       out.write("            </h2>\n");
@@ -95,16 +92,13 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
 					out.println("<td>"+p.getDomicilio()+"</td>");
 					out.println("<td>"+p.getEdad()+"</td></tr>");
 					}
-					
-					request.setAttribute("persona_dao", personadao);
-					//request.getRequestDispatcher("Insert.jsp").forward(request,response);
+					// no creo que sea necesario
+					//request.setAttribute("persona_dao", personas);
 					
       out.write("\n");
       out.write("\t\t\t</table>\n");
-      out.write("\t\n");
-      out.write("\t\t\n");
       out.write("            <br/>\n");
-      out.write("             <br/><a href=\"Insert.jsp\"><input type=\"submit\" value=\"Insertar\"></a>\n");
+      out.write("             <br/><a href=\"InsertarPersona.html\"><input type=\"submit\" value=\"Insertar\"></a>\n");
       out.write("            <br/><br/><br/><br/><br/>\n");
       out.write("        <a href=\"Logout.jsp\">Logout</a>\n");
       out.write("        </center>\n");
