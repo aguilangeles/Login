@@ -16,8 +16,8 @@
         <center>
             <h2>
            <%
-            String a=(String)session.getAttribute("username");
-            out.println("Hello  "+a);
+           // String a=(String)session.getAttribute("username");
+            //out.println("Hello  "+a);
             PersonaDao personadao = (PersonaDao)request.getAttribute("personadao");
 			List<Persona> personas = personadao.getPersonas();
             %>
@@ -38,7 +38,6 @@
 					}
 					
 					request.setAttribute("persona_dao", personadao);
-			//request.getRequestDispatcher("Insert.jsp").forward(request,response);
 					%>
 			</table>
             <br/>
