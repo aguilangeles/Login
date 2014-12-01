@@ -61,16 +61,17 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nombre, apellido, domicilio, edad;
-		nombre = (String) request.getAttribute("name");
-		apellido = (String) request.getAttribute("surname");
-		domicilio = (String) request.getAttribute("address");
-		//edad = (String) request.getAttribute("age");
-		//int a = Integer.parseInt(edad);
-		p = new Persona(nombre, apellido, domicilio, 5);
+//		String nombre = request.getParameter("name"); 
+//		String apellido = request.getParameter("surname");
+//		String domicilio = request.getParameter("address");
+//		String edad = request.getParameter("age");
+//		int age = Integer.parseInt(edad);
+		p = new Persona("nombre", "apellido", "domicilio",0);
+//		p = (Persona) request.getSession().getAttribute("pna");
 		pd.insertarPersona(p);
 		request.setAttribute("personadao", pd );
 		request.getRequestDispatcher("Home.jsp").forward(request, response);
+
 	}
 
 }

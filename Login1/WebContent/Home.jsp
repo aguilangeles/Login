@@ -41,7 +41,7 @@
 					%>
 			</table>
             <br/>
-             <br/><a href="Insert.jsp"><input type="submit" value="Insertar"></a>
+             <br/><a href="InsertarPersona.html"><input type="submit" value="Insertar"></a>
             <br/><br/><br/><br/><br/>
         <a href="Logout.jsp">Logout</a>
         </center>
