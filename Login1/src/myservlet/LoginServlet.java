@@ -21,7 +21,7 @@ import entidad.Persona;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-       
+       private PersonaDao pd = new PersonaDao();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -41,21 +41,30 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		if (username.equals("admin") && password.equals("admin")) {
 			
-			PersonaDao pd = new PersonaDao();
+			request.setAttribute("userna", username);
 			request.setAttribute("personadao", pd );
 			request.getRequestDispatcher("Home.jsp").forward(request, response);
 		
 		} else {
 			response.sendRedirect("Error.jsp");
 		}
+		//doPost(request, response);
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	
+		String nombre = request.getParameter("name");
+		String apellido = request.getParameter("surname");
+		String domicilio = request.getParameter("address");
+		String edad = request.getParameter("age"); 
+		int eda= Integer.parseInt(edad);
+		Persona persona = new Persona(nombre, apellido, domicilio, eda);
+		pd.insertarPersona(persona);
+//		 PrintWriter out = response.getWriter();
+//		out.println(pd.toString());
 	}
 
 }

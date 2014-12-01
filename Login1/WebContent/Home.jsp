@@ -38,11 +38,9 @@
 					}
 					
 					request.setAttribute("persona_dao", personadao);
-					//request.getRequestDispatcher("Insert.jsp").forward(request,response);
+			//request.getRequestDispatcher("Insert.jsp").forward(request,response);
 					%>
 			</table>
-	
-		
             <br/>
              <br/><a href="Insert.jsp"><input type="submit" value="Insertar"></a>
             <br/><br/><br/><br/><br/>

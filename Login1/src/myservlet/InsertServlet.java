@@ -29,19 +29,15 @@ public class InsertServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		String nombre = request.getParameter("name");
 		String apellido = request.getParameter("surname");
 		String domicilio = request.getParameter("address");
 		String edad = request.getParameter("age"); 
-		if (!nombre.isEmpty() && !apellido.isEmpty() && !domicilio.isEmpty() && !edad.isEmpty()){
-			int eda= Integer.parseInt(edad);
-			Persona persona = new Persona(nombre, apellido, domicilio, eda);
-			
-			response.sendRedirect("Home.jsp");
-		}else{
-			response.sendRedirect("Error.jsp");
-		}
-
+		int eda= Integer.parseInt(edad);
+		Persona persona = new Persona(nombre, apellido, domicilio, eda);
+		request.setAttribute("nuevap", persona);
+		
 		
 	}
 
@@ -49,7 +45,7 @@ public class InsertServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 	}
 
 }
