@@ -1,6 +1,0 @@
-INDEX VERSION 1.121+/home/mariaa/workspace/prueba_servlets_1/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-2134406635.index
-2305308230.index
-2352399750.index
-3276928151.index
-1338057584.index
